@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CollegeChalow - Attendance Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <header class="app-header">
+      <h1><i class="fas fa-graduation-cap"></i> CollegeChalow</h1>
+      <h2>Track Your College Attendance</h2>
+    </header>
+
+    <!-- Calendar Section -->
+    <div class="calendar-section">
+      <h3><i class="fas fa-calendar-alt"></i> Calendar</h3>
+      <div class="calendar-controls">
+        <button id="prev-month"><i class="fas fa-chevron-left"></i> Previous</button>
+        <span id="current-month"></span>
+        <button id="next-month">Next <i class="fas fa-chevron-right"></i></button>
+      </div>
+      <div id="calendar" class="calendar">
+        <div id="calendar-days">
+          <!-- Calendar will be generated here -->
+        </div>
+      </div>
+      <!-- Day Details Popup -->
+      <div id="day-details-popup" class="day-details-popup" style="display: none;">
+        <div class="day-details-content">
+          <span class="close-button" onclick="hideDayDetails()">×</span>
+          <h4 id="popup-date"></h4>
+          <div id="popup-classes">
+            <!-- Classes for the day will be listed here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Attendance Summary Section -->
+    <div class="attendance-summary">
+      <h3><i class="fas fa-chart-pie"></i> Attendance Summary</h3>
+      <table id="attendance-summary">
+        <thead>
+          <tr>
+            <th>Subject</th>
+            <th>Total Classes</th>
+            <th>Present</th>
+            <th>Absent</th>
+            <th>Percentage</th>
+            <th>Required Classes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rows will be added dynamically using JavaScript -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Subject Display Section -->
+    <div class="subject-display">
+      <h3><i class="fas fa-book"></i> Your Subjects</h3>
+      <table id="subjects">
+        <thead>
+          <tr>
+            <th>Subject</th>
+            <th>Min Attendance (%)</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rows will be added dynamically using JavaScript -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Subject Input Section -->
+    <div class="subject-section">
+      <h3><i class="fas fa-plus-circle"></i> Add Subject</h3>
+      <form id="subject-form">
+        <input type="text" id="subject-name" placeholder="Subject Name" required>
+        <input type="number" id="min-attendance" placeholder="Min Attendance %" required>
+        <button type="submit">Add Subject</button>
+      </form>
+    </div>
+
+    <!-- Subject Detail Section -->
+    <div id="subject-detail" class="subject-detail" style="display: none;">
+      <div class="subject-detail-header">
+        <h3><i class="fas fa-history"></i> Attendance History for <span id="detail-subject-name"></span></h3>
+        <button class="close-button" onclick="hideSubjectDetail()"><i class="fas fa-times"></i></button>
+      </div>
+      <table id="attendance-history">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Attendance</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Attendance history rows will be added here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
